@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Course Tracker</title>
+  <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+    padding:20px
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+
+  #asa {
+    color:white;
+  }
+  #asa:hover {
+    color:white;
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body style="overflow-y: hidden;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #4065ca;color:white">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h4><a id="asa" href="/"><img src="{{url_for('static', filename='favicon.ico')}}" alt="" width="40"> CourseTracker</a></h4>
+    </div>
+    
+  </div>
+</nav>
+
+<!-- First Container -->
+
+<!-- Second Container -->
+<div class="container-fluid bg-1 text-center" style="padding:30px"><br><br>
+  <h3 class="margin">Our personal recomendation:</h3><br>
+  <div class="row">
+    <a href="{{ link }}">
+    <div class="col-sm-4" style="border: 1px solid gray;background-color: aliceblue;margin-left:10%;width:80%;padding:20px;border-radius: 15px;">
+
+    <table style="width:100%">
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td style="padding-right: 50px;border-right: 2px solid rgb(65, 65, 65);"><img src="{{url_for('static', filename='favicon.ico')}}" width="200" alt=""></td>
+        <td style="text-align: left;color:black;padding-left: 50px;"><input style="border: none;background:aliceblue;width: 100%;font-size:30px;font-weight: bold;" id="sus" value='{{ name }}' readonly><hr style="border:1px solid gray"><h3 style="font-weight: bold;">Duration:<span style="font-weight: normal;font-size:20px">{{ duration }}m</span></h3><h3 style="font-weight: bold;">Website:<span style="font-weight: normal;font-size:20px"> {{ jdsfghjklghfjkghlskdjfghlsjkdfds }}</span></h3></td>
+      </tr>
+    </table>
+    </div></a>
+    
+  </div>
+
+</div>
+
+<footer class="container-fluid bg-4 text-center">
+  <p>Copyright 2023 Nikhil | All rights reserved</p> 
+</footer>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".suss").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+let ez = $('#sus').val();
+ez = ez.substring(0, ez.length - 2);
+ez = ez.slice(0, -11);
+console.log(ez)
+$('#sus').val(ez);
+</script>
+</body>
+</html>
